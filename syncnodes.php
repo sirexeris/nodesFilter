@@ -2,6 +2,7 @@
 
 	/*
 		23.09.2015 | SireXeriS | Version 0.000000001 oder so... ;-)
+		23.09.2015 | SireXeriS | Spiegeln von nodes.json eingefügt (allnodes.json). ToDo: an/abschaltbar machen.
 		
 		Communities, die keine eigene Domäne haben – also Teil einer Domäne sind,
 		können sich nicht richtig an der Freifunk-API anmelden, da die zugehörigen Nodes
@@ -42,6 +43,9 @@
 	// Target (Wohin die gefilterte json geschrieben werden soll.)
 	define("OUTPUT_PATH",$_SERVER['DOCUMENT_ROOT']); //Achtung das Root-Verzeichnis kann je nach Webserver anders interpretiert werden! Legt es hin, wohin ihr wollt.
 	define("TARGET_FILENAME","nodes.json");
+	
+	// In die Datei wird die Source gespiegelt. Zum Beispiel um in einer eignen Karte alle Nodes der Domäne anzuzeigen.
+	define("ALLNODES_TARGET_FILENAME","allnodes.json");
 	
 	// Pfad zu API-File-Template. ##nodecount## wird mit der Anzahl der Nodes ersetzt und ##lastchange## mit dem aktuellen Zeitstempel
 	define("APIFILE_TEMPLATE","api/syncnode_apifile.tpl");
@@ -105,6 +109,11 @@
 		while (!feof($fHandle)) {
 			$buffer .= fgetss($fHandle, 5000);
 			}	
+		
+		//ALLNODES schreiben
+		file_put_contents(OUTPUT_PATH."/".ALLNODES_TARGET_FILENAME,$buffer);			
+		
+		
 		$data = json_decode($buffer,true);
 		
 		//Stream Resourcen freigeben
