@@ -4,8 +4,8 @@
   "location": {
     "city": "Brilon",
     "country": "DE",
-    "lat": 51.340581279972355,
-    "lon": 8.401011384326438
+    "lat": 51.39556,
+    "lon": 8.56776
   },
   "contact": {
     "email": "ffb@freifunk-brilon.net",
@@ -25,12 +25,26 @@
   },
   "nodeMaps": [
     {
-      "url": "http://freifunk-brilon.net/nodes.json",
+      "url": "http://freifunk-brilon.net/nodes_json_wrapper.php",
       "interval": "15",
       "technicalType": "ffmap",
       "mapType": "geographical"
     }
   ],
+  "support": {
+    "donations": {
+      "campaigns": [
+        {
+          "provider": "betterplace",
+          "projectid": "24003"
+        },
+        {
+          "provider": "boost",
+          "projectid": "2774"
+        }
+      ]
+    }
+  },
   "techDetails": {
     "firmware": {
       "name": "Gluon",
