@@ -34,7 +34,7 @@
 
 
 	// Source (Die nodes.json der gesamten (Sub-)Domain)
-	define("NODES_URL","http://map.freifunk-moehne.de/data-meschedebestwig/nodes.json");
+	define("NODES_URL","http://map.freifunk-moehne.de/data-moehnequelle/nodes.json");
 	
 	// Target (Wohin die gefilterte json geschrieben werden soll.)
 	define("OUTPUT_PATH",$_SERVER['DOCUMENT_ROOT']); //Achtung das Root-Verzeichnis kann je nach Webserver anders interpretiert werden! Legt es hin, wohin ihr wollt.
@@ -51,13 +51,14 @@
 	
 	// Pfad zum GEOjson-File (Shapefile/Polygon) Funktioniert mit den .geojson-Dateien der Stadt/Gemeinde-Grenzen 
 	// Ich habe mir gespart hier eine komplette GEOjson-Library einzubauen. 
-	define("GEOJSON","api/geo/bestwig.geojson");
+	define("GEOJSON","api/geo/brilon.geojson");
 	
-	// Dieser Prefix wird immer dann ausgewertet, wenn ein Knoten keine Koordinaten hat. Wenn dieser Knoten aber ein passendes Prefix hat, wird er nicht ausgefiltert.
-	$filter_str = "ff-bestwig";
+	// Dieser String wird immer dann ausgewertet, wenn ein Knoten keine Koordinaten hat. Wenn dieser Knoten aber diese Zeichenkette enthält, wird er nicht ausgefiltert. (Case insensitive)
+	$filter_str = "brilon";
 	
 	// Blacklist NodeIDs (Knoten, die aus der nodes.json fliegen sollen)
-	$blacklist = array("14cc2030c366", "14cc2030c35a", "14cc2030c344");
+	// $blacklist = array("14cc2030c366", "14cc2030c35a", "14cc2030c344");
+	$blacklist = array("");
 	
 	// Whitelist NodeIDs (Knoten, die mit in die nodes.json aufgenommen werden sollen)
 	$whitelist = array("");

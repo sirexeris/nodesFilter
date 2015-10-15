@@ -1,22 +1,22 @@
 {
-  "name": "Freifunk Bestwig",
-  "url": "http://freifunk-bestwig.de",
+  "name": "Freifunk Brilon",
+  "url": "http://freifunk-brilon.net",
   "location": {
-    "city": "Bestwig",
+    "city": "Brilon",
     "country": "DE",
     "lat": 51.340581279972355,
     "lon": 8.401011384326438
   },
   "contact": {
-    "email": "hallo@freifunk-bestwig.de",
-    "phone": "+49 2904 989020",
-    "facebook": "https://facebook.com/freifunkbestwig",
-    "twitter": "@ffbestwig"
+    "email": "ffb@freifunk-brilon.net",
+    "phone": "+49 157 59480418",
+    "facebook": "https://facebook.com/FreifunkBrilon",
+    "twitter": "@FreifunkBrilon"
   },
   "metacommunity": "Freifunk Möhne",
   "state": {
     "nodes": ##nodecount##,
-    "description": "Inititiative Freifunk Bestwig - für ein freies WLAN aus Bürgerhand!",
+    "description": "Inititiative Freifunk Brilon - für ein freies WLAN aus Bürgerhand!",
     "focus": [
       "Public Free Wifi",
       "Free internet access"
@@ -25,8 +25,8 @@
   },
   "nodeMaps": [
     {
-      "url": "http://freifunk-bestwig.de/nodes.json",
-      "interval": "5",
+      "url": "http://freifunk-brilon.net/nodes.json",
+      "interval": "15",
       "technicalType": "ffmap",
       "mapType": "geographical"
     }
@@ -34,7 +34,7 @@
   "techDetails": {
     "firmware": {
       "name": "Gluon",
-      "url": "http://map.freifunk-moehne.de/images/meschedebestwig/"
+      "url": "http://map.freifunk-moehne.de/images/moehnequelle/"
     },
     "updatemode": [
       "manual",
