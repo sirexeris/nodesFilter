@@ -1,9 +1,6 @@
 <?php
 
 	/*
-		23.09.2015 | SireXeriS | Version 0.000000001 oder so... ;-)
-		23.09.2015 | SireXeriS | Spiegeln von nodes.json eingefügt (allnodes.json). ToDo: an/abschaltbar machen.
-		
 		Communities, die keine eigene Domäne haben – also Teil einer Domäne sind,
 		können sich nicht richtig an der Freifunk-API anmelden, da die zugehörigen Nodes
 		erst aus dem großen Ganzen herausgefiltert werden müssen.
@@ -29,8 +26,7 @@
 		##nodecount## -> Aktuelle Anzahl von Nodes in der Community
 		##lastchange## -> Aktuelle Uhrzeit
 		
-		Das Script ist für die Belange in der Domäne Möhne und dessen SubDomains geeignet.
-				
+		Das Script ist für die Belange in der Domäne Möhne und dessen SubDomains geeignet.		
 	*/
 	
 
@@ -44,16 +40,16 @@
 	define("OUTPUT_PATH",$_SERVER['DOCUMENT_ROOT']); //Achtung das Root-Verzeichnis kann je nach Webserver anders interpretiert werden! Legt es hin, wohin ihr wollt.
 	define("TARGET_FILENAME","nodes.json");
 	
-	// In die Datei wird die Source gespiegelt. Zum Beispiel um in einer eignen Karte alle Nodes der Domäne anzuzeigen.
-	define("ALLNODES_TARGET_FILENAME","allnodes.json");
+	// In die Datei wird die Source gespiegelt. Zum Beispiel um in einer eigenen Karte alle Nodes der Domäne anzuzeigen. Wenn man es nicht braucht: Auskommentiert lassen. 
+	// define("ALLNODES_TARGET_FILENAME","allnodes.json");
 	
 	// Pfad zu API-File-Template. ##nodecount## wird mit der Anzahl der Nodes ersetzt und ##lastchange## mit dem aktuellen Zeitstempel
 	define("APIFILE_TEMPLATE","api/syncnode_apifile.tpl");
 	
-	//Pfad zum API-File
+	// Pfad wohin das gefüllte API-File geschrieben werden soll.
 	define("APIFILE","api/freifunk-api.json");
 	
-	//Pfad zum GEOjson-File (Shapefile/Polygon) Funktioniert mit den .geojson-Dateien der Stadt/Gemeinde-Grenzen 
+	// Pfad zum GEOjson-File (Shapefile/Polygon) Funktioniert mit den .geojson-Dateien der Stadt/Gemeinde-Grenzen 
 	// Ich habe mir gespart hier eine komplette GEOjson-Library einzubauen. 
 	define("GEOJSON","api/geo/bestwig.geojson");
 	
@@ -111,7 +107,8 @@
 			}	
 		
 		//ALLNODES schreiben
-		file_put_contents(OUTPUT_PATH."/".ALLNODES_TARGET_FILENAME,$buffer);			
+		if(defined('ALLNODES_TARGET_FILENAME'))
+			file_put_contents(OUTPUT_PATH."/".ALLNODES_TARGET_FILENAME,$buffer);			
 		
 		
 		$data = json_decode($buffer,true);
