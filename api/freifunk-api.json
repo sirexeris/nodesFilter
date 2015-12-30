@@ -1,4 +1,10 @@
 {
+  # Diese Datei wird durch die syncnodes.php immer wieder überschrieben.
+  # Inhalte bitte nur in der syncnode_apifile.tpl anpassen.
+  # Dabei die Platzhalter ##nodecount## und ##lastchange## beachten.
+  # Diese werden von der syncnodes.php mit Realwerten ausgetauscht.
+  #
+  *
   "name": "Freifunk Bestwig",
   "url": "http://freifunk-bestwig.de",
   "location": {
